@@ -72,6 +72,7 @@ private:
     bool _useEventHasTwoParticles_              = false; 
     bool _useEventHasTwoTracks_                 = false; 
     bool _useEventHasTwoFoilVertices_           = false; 
+    bool _useEventHasFourCaloHits_              = false;			//ADDED 15.10.2026!!!!!!!!!!
     bool _useEventHasTwoCaloHits_               = false; 
     bool _useEventHasOneCaloHit_                = false; 
     bool _useEventHasTwoAssociatedCaloHits_     = false; 

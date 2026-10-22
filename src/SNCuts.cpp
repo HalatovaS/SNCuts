@@ -107,6 +107,21 @@ void SNCuts::initialize(
     catch (std::logic_error &e)
     {
     }
+    
+    //ADDED 15.10.2026!!!!!!!!!!!!!!
+    try
+    {
+        myConfig.fetch("useEventHasFourCaloHits", this->_useEventHasFourCaloHits_);
+        if (_useEventHasFourCaloHits_)
+        {
+            // std::cout << "EventHasFourCaloHits" << std::endl;
+            _filtersToBeUsed.push_back("useEventHasFourCaloHits");
+        }
+    }
+    catch (std::logic_error &e)
+    {
+    }
+    
 
     try
     {

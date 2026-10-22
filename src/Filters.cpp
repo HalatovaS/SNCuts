@@ -37,6 +37,12 @@ Filters::Filters(std::vector<std::string>& _filtersToBeUsed)
         {
             useEventHasTwoFoilVertices = true;
         }
+        
+        if (filter == "useEventHasFourCaloHits")
+        {
+            useEventHasFourCaloHits = true;			//ADDED 15.10.2026!!!!!!!!!!!!!!!
+        }
+        
         if (filter == "useEventHasTwoCaloHits")
         {
             useEventHasTwoCaloHits = true;
@@ -102,6 +108,7 @@ Filters::~Filters()
     useEventHasParticles               = false; 
     useEventHasTwoTracks               = false; 
     useEventHasTwoFoilVertices         = false; 
+    useEventHasFourCaloHits            = false;		//ADDED 15.10.2026!!!!!!!
     useEventHasTwoCaloHits             = false; 
     useEventHasOneCaloHit              = false; 
     useEventHasTwoAssociatedCaloHits   = false; 
@@ -230,6 +237,17 @@ bool Filters::event_has_two_foil_vertices(Event& _event)
         return true;
     }
     return false;
+}
+
+//ADDED 15.10.2026!!!!!!!!!!
+
+bool Filters::event_has_four_calo_hits(Event& _event)
+{
+    if( _event.get_cd_bank().get_number_of_calo_hits() == 4 )
+    {
+        return true;
+    }
+    return false; 
 }
 
 bool Filters::event_has_two_calo_hits(Event& _event)
@@ -494,6 +512,7 @@ void Filters::set_n_escaped_particles(int _nEscapedParticles)
 }
 
 bool Filters::event_passed_filters(Event& _event) {
+	
     if ( useEventHasTwoNegativeParticles && !event_has_two_negative_particles(_event) )         // event doesn't pass filter if filter should be used AND is not fulilled!
     {
         return false;
@@ -518,6 +537,14 @@ bool Filters::event_passed_filters(Event& _event) {
     {
         return false;
     }
+    
+    //ADDED 15.10.1016!!!!!!!!!!!!!!
+    
+    if ( useEventHasFourCaloHits && !event_has_four_calo_hits(_event) ) 
+    {
+        return false;
+    }
+    
     if ( useEventHasTwoCaloHits && !event_has_two_calo_hits(_event) ) 
     {
         return false;

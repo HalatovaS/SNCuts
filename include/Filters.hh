@@ -35,6 +35,7 @@ class Filters: public TObject
         bool event_has_particles                    (Event& _event);
         bool event_has_two_tracks                   (Event& _event);                       //this is equivalend to event_has_two_particles
         bool event_has_two_foil_vertices            (Event& _event);
+        bool event_has_four_calo_hits               (Event& _event);                    //ADDED 15.10.2026 !!!!!!!!
         bool event_has_two_calo_hits                (Event& _event);
         bool event_has_one_calo_hit                 (Event& _event);
         bool event_has_two_associated_calo_hits     (Event& _event);
@@ -72,6 +73,7 @@ class Filters: public TObject
         bool useEventHasParticles               = false; 
         bool useEventHasTwoTracks               = false; 
         bool useEventHasTwoFoilVertices         = false; 
+        bool useEventHasFourCaloHits            = false;		//ADDED 15.10.2026!!!!!!!!!!!
         bool useEventHasTwoCaloHits             = false; 
         bool useEventHasOneCaloHit              = false; 
         bool useEventHasTwoAssociatedCaloHits   = false; 

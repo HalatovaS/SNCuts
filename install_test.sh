@@ -45,7 +45,7 @@ echo " "
 cd build
 
 	# cmake -DCMAKE_PREFIX_PATH=$FAL_INC ..
-	cmake -DCMAKE_PREFIX_PATH=/sps/nemo/sw/redhat-9-x86_64/snsw/opt2/falaise-5.1.5/include/ ..
+	cmake -DCMAKE_PREFIX_PATH=/sps/nemo/sw/redhat-9-x86_64/snsw/opt2/falaise-5.1.16 ..
 	# cmake -DCMAKE_PREFIX_PATH=/sps/nemo/sw/Falaise/tests/install_244/include/ ..
 	make
 
